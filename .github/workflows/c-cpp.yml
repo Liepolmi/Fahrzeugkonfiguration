@@ -22,37 +22,42 @@ jobs:
     - name: Build the application
       run: g++ Fahrzeugconfig.cpp -o Fahrzeug
 
+    #- name: Build the tests
+    #  run: g++ Fahrzeugconfig.cpp -o tests
+
     - name: Run the application
-      run: ./Fahrzeug
-      
+      run: ./HelloWorld
+
     - name: Run clang-tidy
-      run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
-      
+      run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17    
+
     - name: Zip the executable
       run: zip setup.zip Fahrzeugconfig
       
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: setup-zip
+        path: ./setup.zip
+
+    #- name: Run the tests
+    #  run: ./tests && echo "All tests passed!"
+  
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
     - name: Download build artifact
       uses: actions/download-artifact@v3
       with:
         name: setup-zip
-        path: ./setup.zip
-        
-release: 
-
-     build:
-     runs-on: ubuntu-latest
-     steps:
-     
-     - name: Download build artifact
-       uses: actions/download-artifact@v3
-       with:
-        name: setup-zip
     
-     - name: Create GitHub Release
-       uses: softprops/action-gh-release@v1  
-       env:
-         GITHUB_TOKEN: ${{ secrets.SUPERSECRET }}
-       with:
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1  
+      env:
+        GITHUB_TOKEN: ${{ secrets.SUPERSECRET }}
+      with:
         tag_name: v1.0.${{ github.run_number }}
         name: "Release v1.0.${{ github.run_number }}"
         draft: false
