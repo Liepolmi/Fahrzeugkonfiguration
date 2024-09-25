@@ -32,7 +32,7 @@ jobs:
       run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17    
 
     - name: Zip the executable
-      run: zip setup.zip Fahrzeugconfig
+      run: zip setup.zip Fahrzeug
       
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
