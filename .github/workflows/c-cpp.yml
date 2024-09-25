@@ -27,15 +27,6 @@ jobs:
       
     - name: Run clang-tidy
       run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
-        
-    - name: Zip the executable
-      run: zip setup.zip Fahrzeugconfig
-      
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: setup-zip
-        path: ./setup.zip
 
         
   release:
@@ -47,6 +38,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: setup-zip
+        
+    - name: Zip the executable
+      run: zip setup.zip Fahrzeugconfig
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1  
