@@ -27,3 +27,13 @@ jobs:
       
     - name: Run clang-tidy
       run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
+      
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1  
+      env:
+        GITHUB_TOKEN: ${{ secrets.SUPERSECRET }}
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: "Release v1.0.${{ github.run_number }}"
+        draft: false
+        prerelease: false
