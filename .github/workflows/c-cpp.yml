@@ -24,3 +24,6 @@ jobs:
 
     - name: Run the application
       run: ./Fahrzeug
+      
+    - name: Run clang-tidy
+      run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
