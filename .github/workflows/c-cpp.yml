@@ -26,7 +26,7 @@ jobs:
       run: ./Fahrzeug
       
     - name: Run clang-tidy
-      run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
+      run: clang-tidy Test.cpp -- -std=c++17
       
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1  
