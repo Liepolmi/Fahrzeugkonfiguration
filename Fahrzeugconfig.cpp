@@ -4,14 +4,14 @@
 
 class FahrzeugKonfiguration {
 private:
- std::string Modell;
+    std::string Modell;
     std::string farbe;
- std::string Motor;
+    std::string Motor;
     std::string felgen;
     std::string innenausstattung;
 
     // Preise für die Features
-    doppelter basisPreis;
+    double basisPreis;
     std::map<std::string, double> motorPreise;
     std::map<std::string, double> felgenPreise;
     std::map<std::string, double> innenausstattungPreise;
@@ -49,7 +49,7 @@ public:
     void setMotor(const std::string& mo) {
         if (motorPreise.find(mo) != motorPreise. Ende()) {
             motor = mo;
-        } oder {
+        } or {
             std::cout << "Ungültiger Motor gewählt!\n";
         }
     }
@@ -107,13 +107,13 @@ int main() {
     FahrzeugKonfiguration config("Audi A6", 45000.0);
 
     // Features setzen
- config. setFarbe("Weiß");
- config. setMotor("V6 Benzin");
- config. setFelgen("20 Zoll Chromfelgen");
- config. setInnenausstattung("Leder, Schwarz");
+ config.setFarbe("Weiß");
+ config.setMotor("V6 Benzin");
+ config.setFelgen("20 Zoll Chromfelgen");
+ config.setInnenausstattung("Leder, Schwarz");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
- config. zeigeKonfiguration();
+ config.zeigeKonfiguration();
 
     Rückgabe 0;
 }
