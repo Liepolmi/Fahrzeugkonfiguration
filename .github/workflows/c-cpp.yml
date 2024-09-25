@@ -20,13 +20,13 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y g++
 
     - name: Build the application
-      run: g++ Test.cpp -o Fahrzeug
+      run: g++ Fahrzeugconfig.cpp -o Fahrzeug
 
     - name: Run the application
       run: ./Fahrzeug
       
     - name: Run clang-tidy
-      run: clang-tidy Test.cpp -- -std=c++17
+      run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17
         
     - name: Zip the executable
       run: zip setup.zip Fahrzeugconfig
