@@ -2,7 +2,7 @@
 # include <string>
 //#<Karte einschließen> 
 
-class FahrzeugKonfiguration {
+Klasse FahrzeugKonfiguration {
 privat:
  std::string-Modell;
     std::string farbe;
