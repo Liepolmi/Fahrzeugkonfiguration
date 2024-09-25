@@ -1,8 +1,8 @@
 #include <iostream>
 # include <string>
-#<Karte einschließen> 
+//#<Karte einschließen> 
 
-Klasse FahrzeugKonfiguration {
+class FahrzeugKonfiguration {
 privat:
  std::string-Modell;
     std::string farbe;
