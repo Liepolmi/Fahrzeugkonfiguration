@@ -20,7 +20,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y g++
 
     - name: Build the application
-      run: g++ Fahrzeugconfig.cpp -o Fahrzeug
+      run: g++ Test.cpp -o Fahrzeug
 
     - name: Run the application
       run: ./Fahrzeug
