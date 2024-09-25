@@ -26,7 +26,7 @@ jobs:
     #  run: g++ Fahrzeugconfig.cpp -o tests
 
     - name: Run the application
-      run: ./HelloWorld
+      run: ./Fahrzeug
 
     - name: Run clang-tidy
       run: clang-tidy Fahrzeugconfig.cpp -- -std=c++17    
