@@ -1,12 +1,12 @@
 #include <iostream>
-# include <string>
-//#<Karte einschließen> 
+#include <string>
+#include <map>
 
 class FahrzeugKonfiguration {
 private:
-    std::string Modell;
+    std::string modell;
     std::string farbe;
-    std::string Motor;
+    std::string motor;
     std::string felgen;
     std::string innenausstattung;
 
@@ -47,25 +47,25 @@ public:
     }
 
     void setMotor(const std::string& mo) {
-        if (motorPreise.find(mo) != motorPreise. Ende()) {
+        if (motorPreise.find(mo) != motorPreise.end()) {
             motor = mo;
-        } or {
+        } else {
             std::cout << "Ungültiger Motor gewählt!\n";
         }
     }
 
     void setFelgen(const std::string& fe) {
-        if (felgenPreise.find(fe) != felgenPreise. Ende()) {
+        if (felgenPreise.find(fe) != felgenPreise.end()) {
             felgen = fe;
-        } or {
+        } else {
             std::cout << "Ungültige Felgen gewählt!\n";
         }
     }
 
     void setInnenausstattung(const std::string& ia) {
-        if (innenausstattungPreise.find(ia) != innenausstattungPreise. Ende()) {
+        if (innenausstattungPreise.find(ia) != innenausstattungPreise.end()) {
             innenausstattung = ia;
-        } or {
+        } else {
             std::cout << "Ungültige Innenausstattung gewählt!\n";
         }
     }
@@ -75,8 +75,8 @@ public:
         double gesamtPreis = basisPreis;
 
         // Preis der gewählten Features hinzufügen
-        if (motorPreise.find(motor) != motorPreise. Ende()) {
- gesamtPreis += motorPreise. at(Motor);
+        if (motorPreise.find(motor) != motorPreise.end()) {
+            gesamtPreis += motorPreise.at(motor);
         }
 
         if (felgenPreise.find(felgen) != felgenPreise.end()) {
@@ -95,7 +95,7 @@ public:
         std::cout << "Fahrzeugkonfiguration:\n"
                   << "Modell: " << modell << "\n"
                   << "Farbe: " << farbe << "\n"
-                  << "Motor: " << motor << " (Preis: " << motorPreise.at(Motor) << " Euro)\n"
+                  << "Motor: " << motor << " (Preis: " << motorPreise.at(motor) << " Euro)\n"
                   << "Felgen: " << felgen << " (Preis: " << felgenPreise.at(felgen) << " Euro)\n"
                   << "Innenausstattung: " << innenausstattung << " (Preis: " << innenausstattungPreise.at(innenausstattung) << " Euro)\n"
                   << "Gesamtpreis: " << berechneGesamtPreis() << " Euro\n";
@@ -107,13 +107,13 @@ int main() {
     FahrzeugKonfiguration config("Audi A6", 45000.0);
 
     // Features setzen
- config.setFarbe("Weiß");
- config.setMotor("V6 Benzin");
- config.setFelgen("20 Zoll Chromfelgen");
- config.setInnenausstattung("Leder, Schwarz");
+    config.setFarbe("Weiß");
+    config.setMotor("V6 Benzin");
+    config.setFelgen("20 Zoll Chromfelgen");
+    config.setInnenausstattung("Leder, Schwarz");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
- config.zeigeKonfiguration();
+    config.zeigeKonfiguration();
 
-    Rückgabe 0;
+    return 0;
 }
