@@ -2,8 +2,8 @@
 # include <string>
 //#<Karte einschließen> 
 
-Klasse FahrzeugKonfiguration {
-privat:
+class FahrzeugKonfiguration {
+private:
  std::string-Modell;
     std::string farbe;
  std::String-Motor;
@@ -16,7 +16,7 @@ privat:
     std::map<std::string, double> felgenPreise;
     std::map<std::string, double> innenausstattungPreise;
 
-Öffentlich:
+public:
     // Konstruktor
     FahrzeugKonfiguration(const std::string& m, double basisP)
         : modell(m), basisPreis(basisP) {
@@ -57,7 +57,7 @@ privat:
     void setFelgen(const std::string& fe) {
         if (felgenPreise.find(fe) != felgenPreise. Ende()) {
             felgen = fe;
-        } oder {
+        } or {
             std::cout << "Ungültige Felgen gewählt!\n";
         }
     }
@@ -65,7 +65,7 @@ privat:
     void setInnenausstattung(const std::string& ia) {
         if (innenausstattungPreise.find(ia) != innenausstattungPreise. Ende()) {
             innenausstattung = ia;
-        } oder {
+        } or {
             std::cout << "Ungültige Innenausstattung gewählt!\n";
         }
     }
